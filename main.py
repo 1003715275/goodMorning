@@ -10,7 +10,6 @@ today = datetime.now()
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
-born_date = os.environ['BORNDAY']
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
@@ -27,7 +26,7 @@ def get_weather():
 
 def get_count():
   delta_day = today - datetime.strptime(start_date, "%Y-%m-%d")
-  survive_day = today - datetime.strptime(born_date, "%Y-%m-%d")
+  survive_day = today - datetime.strptime("1998-05-12", "%Y-%m-%d")
   return delta_day.days, survive_day.days
 
 def get_birthday():
