@@ -15,7 +15,7 @@ birthday = os.environ['BIRTHDAY']
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
-user_id = os.environ["USER_ID"]
+user_ids = os.environ["USER_ID"]
 template_id = os.environ["TEMPLATE_ID"]
 
 
@@ -52,5 +52,6 @@ wea, low, high, temperature, wind, airquality = get_weather()
 love_days, survive_days = get_count()
 content, note = get_words()
 data = {"city":{"value":city, "color":get_random_color()},"weather":{"value":wea, "color":get_random_color()},"low":{"value":low, "color":get_random_color()},"high":{"value":high, "color":get_random_color()},"temperature":{"value":temperature, "color":get_random_color()},"wind":{"value":wind, "color":get_random_color()},"airquality":{"value":airquality, "color":get_random_color()},"survive_days":{"value":survive_days, "color":get_random_color()},"love_days":{"value":love_days, "color":get_random_color()},"birthday_left":{"value":get_birthday(), "color":get_random_color()},"content":{"value":content, "color":get_random_color()},"note":{"value":note, "color":get_random_color()}}
-res = wm.send_template(user_id, template_id, data)
-print(res)
+for user_id in user_ids:
+  res = wm.send_template(user_id, template_id, data)
+  print(res)
